@@ -12,6 +12,7 @@ public class Main {
         atleta1.setAltura(1.70);
         atleta1.setHorasEntrenamientodiarias(3);
         atleta1.setImc(atleta1.calcularIMC());
+        atleta1.setPromHorasEntrenamiento(atleta1.calcularPromedioSemanalEntrenamiento());
         atleta1.mostrarAtleta();
         System.out.print("Claficación del IMC: ");
         atleta1.clasificarIMC();
@@ -26,6 +27,7 @@ public class Main {
         System.out.println("Gestion de atletas");
         // calcular el IMC y asignarlo al atributo a traves de metodo set
         atleta2.setImc(atleta2.calcularIMC());
+        atleta2.setPromHorasEntrenamiento(atleta2.calcularPromedioSemanalEntrenamiento());
         atleta2.mostrarAtleta();
         System.out.print("Claficación del IMC: ");
         atleta2.clasificarIMC();
