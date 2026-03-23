@@ -65,4 +65,3 @@ El sistema debe permitir:
 
 ---
 
-## 💻 Ejemplo de Estructura del Bucle
