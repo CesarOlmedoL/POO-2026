@@ -7,17 +7,19 @@ public class Atleta {
     private String deporte;
     private double peso;
     private double altura;
-    private double horasEntrenamientodiarias;
+    private double [] horasEntrenamientodiarias;
 
     // Nuevo atributo
     private double imc;
     private double promHorasEntrenamiento;
 
     // Construct vacio
-    public Atleta(){}
+    public Atleta(){
+        horasEntrenamientodiarias = new double [7];
+    }
 
     // Constructor parametrizado
-    public Atleta(String nombre, int edad, String deporte, double peso, double altura, double horas, double imc) {
+    public Atleta(String nombre, int edad, String deporte, double peso, double altura, double [] horas, double imc, double promHorasEntrenamiento) {
         this.nombre = nombre;
         this.edad = edad;
         this.deporte = deporte;
@@ -25,6 +27,7 @@ public class Atleta {
         this.altura = altura;
         this.horasEntrenamientodiarias = horas;
         this.imc = imc;
+        this.promHorasEntrenamiento = promHorasEntrenamiento;
 
     }
 
@@ -59,17 +62,10 @@ public class Atleta {
     public void setAltura(double altura) {
         this.altura = altura;
     }
-    public double getPromHorasEntrenamiento() {
-        return promHorasEntrenamiento;
-    }
-    public void setPromHorasEntrenamiento(double promHorasEntrenamiento) {
-        this.promHorasEntrenamiento = promHorasEntrenamiento;
-    }
-
-    public double getHorasEntrenamientodiarias() {
+    public double[] getHorasEntrenamientodiarias() {
         return horasEntrenamientodiarias;
     }
-    public void setHorasEntrenamientodiarias(double horasEntrenamientodiarias) {
+    public void setHorasEntrenamientodiarias(double [] horasEntrenamientodiarias) {
         this.horasEntrenamientodiarias = horasEntrenamientodiarias;
     }
     public double getImc() {
@@ -78,11 +74,21 @@ public class Atleta {
     public void setImc(double imc) {
         this.imc = imc;
     }
+    public double getPromHorasEntrenamiento() {
+        return promHorasEntrenamiento;
+    }
+    public void setPromHorasEntrenamiento(double promHorasEntrenamiento) {
+        this.promHorasEntrenamiento = promHorasEntrenamiento;
+    }
+
 
     // Metodos de lógica de negocio
     public double calcularPromedioSemanalEntrenamiento(){
-        double promedio = (horasEntrenamientodiarias * 7) / 7;
-        return Math.round(promedio * 100) / 100.0;
+        float totalHoras = 0;
+        for (int i=0; i< horasEntrenamientodiarias.length; i++){
+            totalHoras += horasEntrenamientodiarias[i];
+        }
+        return Math.round((totalHoras / horasEntrenamientodiarias.length) * 100) / 100.0;
     }
 
     public double calcularIMC(){
@@ -120,10 +126,13 @@ public class Atleta {
         System.out.println("Nombre: " + getNombre());
         System.out.println("Edad: " + getEdad());
         System.out.println("Deporte: " + getDeporte());
-        System.out.println("Peso: " + getPeso());
-        System.out.println("Altura: " + getAltura());
+        System.out.println("Peso Kg: " + getPeso());
+        System.out.println("Altura Mts: " + getAltura());
         System.out.println("IMC: " + getImc());
-        System.out.println("Horas de entrenamiento por cada dia de la semana: " + getHorasEntrenamientodiarias());
+        System.out.println("Horas de entrenamiento por cada dia de la semana: ");
+        for (int i=0; i< getHorasEntrenamientodiarias().length; i++){
+            System.out.println("Día" + i + ": " + getHorasEntrenamientodiarias()[i] + " horas");
+        }
     }
 
 

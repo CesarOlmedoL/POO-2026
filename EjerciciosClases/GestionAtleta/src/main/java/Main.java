@@ -10,7 +10,7 @@ public class Main {
         atleta1.setDeporte("Atletismo");
         atleta1.setPeso(55);
         atleta1.setAltura(1.70);
-        atleta1.setHorasEntrenamientodiarias(3);
+        atleta1.setHorasEntrenamientodiarias(new double[]{2,4,5,5,2,3,5});
         atleta1.setImc(atleta1.calcularIMC());
         atleta1.setPromHorasEntrenamiento(atleta1.calcularPromedioSemanalEntrenamiento());
         atleta1.mostrarAtleta();
@@ -22,7 +22,7 @@ public class Main {
         System.out.println("\n-------------------------------\n");
 
         // atleta2 -> objeto
-        Atleta atleta2 = new Atleta("Jose", 21, "Natacion",  75, 1.80, 10, 0);
+        Atleta atleta2 = new Atleta("Jose", 21, "Natacion",  75, 1.80, new double[]{2,3,4,5,2,5,1},0,0);
 
         System.out.println("Gestion de atletas");
         // calcular el IMC y asignarlo al atributo a traves de metodo set
