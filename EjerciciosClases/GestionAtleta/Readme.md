@@ -1,116 +1,48 @@
-# 🏃‍♂️ Gestión de Atletas - Parte II
+# 🏃‍♂️ Gestión de Atletas 
 
-## 📌 Descripción del Proyecto
-
-Este ejercicio tiene como objetivo la creación de clases abstractas e interfaces, aplicando los principios de **herencia** y **polimorfismo**, permitiendo gestionar y mostrar información de atletas de diferentes disciplinas.
-
-El propósito principal es que los estudiantes continúen el proyecto de Gestión de Atletas, incorporando:
-
-- Clases abstractas
-- Interfaces
-- Relaciones entre clases
-- Reutilización de código mediante herencia
+## 📖 Descripción del Proyecto
+Proyecto desarrollado en Java utilizando Gradle (DSL Groovy). 
+La estructura del proyecto está diseñada para permitir la escalabilidad a medida que se avanzan los temas relacionados con Programación Orientada a Objetos (POO).
 
 ---
 
-## 🎯 Objetivos de Aprendizaje
+## 📌 Parte I 
+Implementación del diagrama de clases en código, aplicando conceptos de POO:
+- Encapsulamiento  
+- Abstracción  
 
-- Aplicar herencia y polimorfismo
-- Crear e implementar interfaces
-- Definir clases abstractas
-- Sobrescribir métodos
-- Utilizar `super` y `this`
-- Extender funcionalidades del proyecto anterior
+Se inicia con la clase `Atleta`.
 
 ---
 
-## 🔄 Modificaciones al Proyecto
+## 📌 Parte II
+Se expande el diagrama de clases incorporando:
+- `Nadador` (clase concreta)  
+- `Atleta` (clase abstracta)  
+- `Imprimible` (interfaz)  
 
-### 📊 Actualizar el Diagrama de Clases
-
-- Utilizar **draw.io**
-- Incluir:
-  - Clase abstracta `Atleta`
-  - Interfaz `Imprimible`
-  - Clase(s) hija(s) (ejemplo: `AtletaNatacion`)
-
----
-
-## 🧩 Diseño del Sistema
-
-### 📌 Interfaz: `Imprimible`
-
-Define el comportamiento para mostrar información.
-
-#### Método:
-
-- `imprimir() : void`
+Se aplican los conceptos de:
+- Herencia  
+- Polimorfismo  
 
 ---
 
-### 📌 Clase Abstracta: `Atleta`
+## 📌 Parte III
+Se amplía el diagrama de clases aplicando diferentes tipos de relaciones:
 
-#### Atributos:
-
-- nombre : String
-- edad : int
-- deporte : String
-- horasEntrenamiento : double
-- peso : double
-- altura : double
-
-#### Métodos:
-
-- calcularIMC() : double
-- clasificarIMC() : String
-- clasificarRendimiento() : String
-- mostrarInformacion() : void
-- **entrenar() : void (abstracto)**
-
-#### Implementa:
-
-- Interfaz `Imprimible`
+- Se agrega el enum `Deporte`, asociado a `Atleta`.  
+- Se incorpora la clase `Entrenador`, que implementa `Imprimible` y se asocia con `Atleta`.  
+- Se agrega la interfaz `Pagable`, implementada por `Entrenador`.  
+- Se crea la clase `Equipo`, con una relación de **agregación** con `Atleta`.  
+- Se añade la clase `PlanEntrenamiento`, con:
+  - Relación de **composición** con `Atleta`  
+  - Relación de **dependencia** con `Entrenador`  
 
 ---
 
-### 📌 Clase Hija (Ejemplo): `AtletaNatacion`
+## 📌 Parte IV
+Se implementa el uso de **colecciones** en el proyecto:
+- Se modifican atributos de las clases existentes para utilizar estructuras como:
+  - Listas (`List`)  
+  - Mapas (`Map`)  
 
-#### Atributos adicionales:
-
-- estilo : String
-- mejorTiempo : double
-
-#### Métodos:
-
-- Implementación de `entrenar()`
-- Sobrescritura de métodos necesarios
-- Uso de `super` para acceder a la clase padre
-- Uso de `this` para atributos propios
-
----
-
-## 💻 Implementación en Java (Gradle)
-
-### Requisitos:
-
-- Proyecto con Gradle
-- Codificación del diagrama de clases
-- Uso de herencia e interfaces
-- Creación de objetos mediante constructores
-
----
-
-## 🔄 Flujo del Programa
-
-El programa debe:
-
-1. Mostrar un menú con opciones:
-  - Registrar atleta
-  - Mostrar atletas
-  - Salir
-
-2. Permitir ingresar diferentes tipos de atletas
-
-3. Mostrar información en consola
-
-4. Repetir el proceso usando un ciclo:
