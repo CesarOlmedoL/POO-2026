@@ -133,6 +133,8 @@ public abstract class Atleta implements Imprimible{
         }
     }
 
+    public abstract void entrenar();
+
     @Override
     public void imprimir(){
         System.out.println("Nombre: " + getNombre());
@@ -140,13 +142,11 @@ public abstract class Atleta implements Imprimible{
         System.out.println("Deporte: " + getDeporte());
         System.out.println("Peso Kg: " + getPeso());
         System.out.println("Altura Mts: " + getAltura());
-        System.out.println("IMC: " + getImc());
         System.out.println("Horas de entrenamiento por cada dia de la semana: ");
         for (int i=0; i< getHorasEntrenamientodiarias().length; i++){
             System.out.println("Día" + i + ": " + getHorasEntrenamientodiarias()[i] + " horas");
         }
     }
 
-    public abstract void entrenar();
-
+    // metodo recibir plan de entrenamiento
 }
