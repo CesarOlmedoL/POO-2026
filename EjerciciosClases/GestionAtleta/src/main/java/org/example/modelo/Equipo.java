@@ -1,41 +1,14 @@
 package org.example.modelo;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class Equipo implements Imprimible{
 
-    String nombre;
-    // Colección lista
-    List<Atleta> miembrosEquipo;
+    // atributos
 
-    public Equipo() {
-        this.miembrosEquipo = new ArrayList<>();
-    }
+    // constructores
 
-    public Equipo(String nombre, List<Atleta> miembrosEquipo) {
-        this.nombre = nombre;
-        this.miembrosEquipo = new ArrayList<>();
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-    public List<Atleta> getMiembrosEquipo() {
-        return miembrosEquipo;
-    }
-    // No necesario el metodo setter
-    public void setMiembrosEquipo(List<Atleta> miembrosEquipo) {
-        this.miembrosEquipo = miembrosEquipo;
-    }
-
-    // Agregar atletas a la lista
-    public boolean agregarMiembrosEquipo(Atleta atleta) {
-        return this.miembrosEquipo.add(atleta);
-    }
+    // metodos
 
     // Imprimir
     @Override

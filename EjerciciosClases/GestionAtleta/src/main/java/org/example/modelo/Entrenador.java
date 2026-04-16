@@ -71,23 +71,9 @@ public class Entrenador implements Pagable, Imprimible {
         return this.atletasAsignados.add(atleta);
     }
 
-    public boolean preescribirPlanEntrenamiento(Atleta atleta) {
+    // determinar Objetivo Plan de Entrenamiento
 
-        // Crear el plan de entrenamiento segun el atleta
-
-        // Traer los datos del atleta para conocer el IMC la clasificacion actual
-
-        // si el IMC la clasificacion
-        // es PesoNormal, agregar ejercicios: entrenamiento funcional
-        // es bajoPeso, agregar ejercicios: levantamiento de pesas (hipertrofia)
-        // es Sobrepeso, agregar ejercicios: cardio intenso
-        // es obesidad, agregar ejercicios: caminata a ritmo constante
-
-        // agregar el plan al atleta
-
-        return true;
-    }
-
+    // preescribir Plan de entrenamiento
 
 
 
