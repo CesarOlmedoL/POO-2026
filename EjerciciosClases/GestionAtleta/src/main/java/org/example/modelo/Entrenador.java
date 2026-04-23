@@ -26,9 +26,9 @@ public class Entrenador implements Pagable, Imprimible {
         return salario;
     }
     // No es necesario el set
-    public void setSalario(double salario) {
+ /*   public void setSalario(double salario) {
         this.salario = salario;
-    }
+    }*/
     public int getExperiencia() {
         return experiencia;
     }
@@ -72,9 +72,32 @@ public class Entrenador implements Pagable, Imprimible {
     }
 
     // determinar Objetivo Plan de Entrenamiento
+    public String determinarObjetivoPlan(Atleta atleta) {
+        String objetivoGenerado = "";
+   /*     Bajo peso -> Ganar Masa muscular
+        Peso normal -> Mantenimiento
+        Sobrepeso -> Gasto Calorico
+        Obesidad -> Acondicionamiento metabolico*/
+
+        switch (atleta.getClasificacionIMC()) {
+            case "Bajo peso" -> objetivoGenerado = "Ganar masa muscular";
+            case "Peso normal" -> objetivoGenerado = "Mantenimiento";
+            case "Sobrepeso" -> objetivoGenerado = "Gasto calórico";
+            case "Obesidad" -> objetivoGenerado = "Acondicionamiento metabolico";
+            default -> objetivoGenerado = "Clasificacion de IMC no encontrada";
+        }
+
+        return objetivoGenerado;
+    }
+
 
     // preescribir Plan de entrenamiento
-
-
+    public boolean preescribirPlan(Atleta atleta, PlanEntrenamiento plan) {
+        if (atleta == null || plan == null) {
+            return false;
+        }
+        atleta.recibirPlantEntrenamiento(plan);
+        return true;
+    }
 
 }
