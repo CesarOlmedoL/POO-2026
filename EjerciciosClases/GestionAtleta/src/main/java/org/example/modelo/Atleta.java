@@ -16,10 +16,13 @@ public abstract class Atleta implements Imprimible{
     // nuevos atributos
     private double imc;
     private double promHorasEntrenamiento;
+    private PlanEntrenamiento planActual;
+    private String clasificacionIMC;
 
     // Construct vacio
     public Atleta(){
         horasEntrenamientodiarias = new double [7];
+        planActual = new PlanEntrenamiento();
     }
 
     // Constructor parametrizado
@@ -34,6 +37,7 @@ public abstract class Atleta implements Imprimible{
         this.horasEntrenamientodiarias = horas;
         this.imc = imc;
         this.promHorasEntrenamiento = promHorasEntrenamiento;
+        this.planActual = new PlanEntrenamiento();
 
     }
 
@@ -72,6 +76,7 @@ public abstract class Atleta implements Imprimible{
         this.altura = altura;
     }
 
+
     // Implementación de arreglo
     public double[] getHorasEntrenamientodiarias() {
         return horasEntrenamientodiarias;
@@ -93,6 +98,19 @@ public abstract class Atleta implements Imprimible{
         this.promHorasEntrenamiento = promHorasEntrenamiento;
     }
 
+    public PlanEntrenamiento getPlanActual() {
+        return planActual;
+    }
+    public void setPlanActual(PlanEntrenamiento planActual) {
+        this.planActual = planActual;
+    }
+    public String getClasificacionIMC() {
+        return clasificacionIMC;
+    }
+    public void setClasificacionIMC(String clasificacionIMC) {
+        this.clasificacionIMC = clasificacionIMC;
+    }
+
     // Metodos de lógica de negocio
     public double calcularPromedioSemanalEntrenamiento(){
         float totalHoras = 0;
@@ -109,16 +127,17 @@ public abstract class Atleta implements Imprimible{
 
     }
 
-    public void clasificarIMC(){
+    public String clasificarIMC(){
         if (getImc() < 18.5){
-            System.out.println("Bajo peso");
+            clasificacionIMC = "Bajo peso";
         } else if (getImc() >= 18.5 && getImc() < 25) {
-            System.out.println("Peso normal");
+            clasificacionIMC = "Peso normal";
         } else if (getImc() >= 25 && getImc() < 30) {
-            System.out.println("Sobrepeso");
+            clasificacionIMC = "Sobrepeso";
         } else if (getImc() >= 30) {
-            System.out.println("Obesidad");
+            clasificacionIMC = "Obesidad";
         }
+        return clasificacionIMC;
     }
 
     public void clasificarRendimiento(){
@@ -149,4 +168,11 @@ public abstract class Atleta implements Imprimible{
     }
 
     // metodo recibir plan de entrenamiento
+    public boolean recibirPlantEntrenamiento(PlanEntrenamiento planActual){
+        if (planActual == null){
+            return false;
+        }
+        this.planActual = planActual;
+        return true;
+    }
 }
