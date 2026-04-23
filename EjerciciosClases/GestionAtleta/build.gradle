@@ -8,7 +8,11 @@ version = '1.0-SNAPSHOT'
 
 //Habilitar el archivo principal a ejecutar
 application {
-    mainClass = 'Main'
+    mainClass = 'org.example.Main'
+}
+// Habilitar el ingreso de datos por consola
+run {
+    standardInput = System.in
 }
 
 repositories {
