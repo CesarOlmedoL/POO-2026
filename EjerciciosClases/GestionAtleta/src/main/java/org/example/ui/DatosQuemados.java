@@ -2,7 +2,13 @@ package org.example.ui;
 
 import org.example.catalogo.Deporte;
 import org.example.modelo.*;
+import org.example.modelo.GestorReporte;
+import org.example.patrones.estrategia.visualizacion.EstrategiaVisualizacion;
+import org.example.patrones.estrategia.visualizacion.Reporte;
+import org.example.patrones.estrategia.visualizacion.VisualizacionCompleta;
+import org.example.patrones.estrategia.visualizacion.VisualizacionSimple;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,5 +79,30 @@ public class DatosQuemados {
         // Imprimiendo el plan de entrenamiento asignado a un atleta
         System.out.println("\nPlan de entrenamiento actual del atleta: " + nadador1.getNombre());
         nadador1.getPlanActual().imprimir();
+
+        //Creando el reporte
+        Reporte reporte1 = new Reporte();
+        reporte1.setAsunto("Primer reporte del mes del atleta " + entrenador1.getAtletasAsignados().get(0).getNombre());
+        reporte1.setFecha(LocalDate.now());
+
+        // Enviando reporte por entrenador1
+        GestorReporte gestorReporte1 = new GestorReporte();
+        entrenador1.enviarReporte(gestorReporte1,reporte1);
+
+
+        // visualizando el reporte aplicando el patron strategy
+        EstrategiaVisualizacion estrategiaReporteCompleto = new VisualizacionCompleta();
+        EstrategiaVisualizacion estrategiaReporteSimple = new VisualizacionSimple();
+        reporte1.setEstrategia(estrategiaReporteCompleto);
+        reporte1.visualizar();
+
+        // Imprimir el listado de los reportes desde el gestor
+        System.out.println("\nListado de reportes ");
+        for (Reporte reporte: gestorReporte1.getReportes()){
+            System.out.println("Detalles del reportes: ");
+            System.out.println("Asunto " + reporte.getAsunto());
+            System.out.println("Fecha " + reporte.getFecha());
+        }
+
     }
 }
