@@ -8,12 +8,12 @@ import org.example.ui.EntradaDatosAtleta;
 public class Main {
     public static void main(String[] args) {
 
-        // DatosQuemados.cargarDatos();
+        DatosQuemados.cargarDatos();
 
-        EntradaDatosAtleta entrada = new EntradaDatosAtleta();
+       /* EntradaDatosAtleta entrada = new EntradaDatosAtleta();
         Nadador nadador1 = entrada.entradaDatosNadador();
         System.out.println("\nImprimiendo datos ingresados: ..");
-        System.out.println("Nombre del nadador: " + nadador1.getNombre());
+        System.out.println("Nombre del nadador: " + nadador1.getNombre());*/
 
     }
 }
