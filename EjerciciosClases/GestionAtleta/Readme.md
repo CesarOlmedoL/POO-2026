@@ -46,3 +46,17 @@ Se implementa el uso de **colecciones** en el proyecto:
   - Listas (`List`)  
   - Mapas (`Map`)  
 
+## 📌 Parte V
+Se aplica el patrón de diseño **Strategy**, ampliando el diagrama de clases de la siguiente manera:
+
+- Se agrega la clase `GestorReporte`, la cual tiene una relación de **dependencia** con `Entrenador`.
+- Se incorpora la clase `Reporte`, que se asocia con `GestorReporte`.
+- Se define la interfaz `EstrategiaVisualizacion`, encargada de delegar el comportamiento del patrón Strategy.
+- Se implementan dos estrategias concretas:
+  - `VisualizacionCompleta`
+  - `VisualizacionSimple`
+
+Este diseño permite cambiar dinámicamente la forma en que se visualizan los reportes, promoviendo flexibilidad y reutilización del código.
+
+
+
