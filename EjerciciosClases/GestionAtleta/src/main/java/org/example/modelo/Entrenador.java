@@ -1,5 +1,7 @@
 package org.example.modelo;
 
+import org.example.patrones.estrategia.visualizacion.Reporte;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -99,5 +101,12 @@ public class Entrenador implements Pagable, Imprimible {
         atleta.recibirPlantEntrenamiento(plan);
         return true;
     }
+
+    // enviar reporte
+    public boolean enviarReporte(org.example.modelo.GestorReporte gestor, Reporte reporte) {
+        if (gestor == null || reporte == null) return false;
+        return gestor.guardarReportes(reporte);
+    }
+
 
 }
